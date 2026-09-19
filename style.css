@@ -180,6 +180,8 @@ section h2 {
     color: white;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
+
+
 }
 
 .brechos h2 {
@@ -188,26 +190,40 @@ section h2 {
 
 .brecho-box {
     background-color: #d62828;
-    max-width: 900px;
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
     padding: 35px;
     border-radius: 20px;
     box-shadow: 0 5px 18px rgba(0,0,0,0.4);
-    align-items: right;
-    align-content: center;
-    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.brecho-info {
+    flex: 1;
+    min-width: 260px;
 }
 
 .brecho-box h3 {
     font-size: 28px;
     margin-top: 15px;
+
 }
 
 .brecho-box h1 {
     font-size: 28px;
     margin-bottom: 15px;
-    color:#eb0101;
+    color:#f8efef;
+    text-align: left-up;
 }
+
+.div {
+    margin: 10ox 20px 30px 40px;
+}
+
 
 /* SOBRE NÓS */
 
@@ -328,7 +344,7 @@ footer p {
     }
 
     .banner h1 {
-        font-size: 34px;
+        font-size: 50px;
     }
 
     .banner p {
@@ -379,18 +395,31 @@ footer p {
     box-shadow: 0 5px 18px rgba(0,0,0,0.2);
 }
 
+@media (max-width: 768px) {
+    .brecho-box {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .brecho-info,
+    .mapa {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 .mapa h3 {
-    color:#d62828;
+    color:#fdf6f6;
     font-size: 24px;
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 50px;
+    text-align: left;
 }
 
 .mapa iframe {
     width: 100%;
-    height: 300px;
+    height: 500px;
     border: 0;
-    border-radius: 14px;
+    border-radius: 28px;
 }
 
 .card button {
