@@ -1,13 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como a moda escancara as classes sociais</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Como a moda escancara as classes sociais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EAE3D3;
+    --paper-2: #E0D8C4;
+    --ink: #1D1811;
+    --ink-soft: #55503F;
+    --oxblood: #6B2737;
+    --pin: #8B8677;
+    --rule: rgba(29,24,17,0.18);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1B1712;
+      --paper-2: #221D16;
+      --ink: #EDE6D6;
+      --ink-soft: #B8AF9B;
+      --oxblood: #C97387;
+      --pin: #8B8677;
+      --rule: rgba(237,230,214,0.18);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1B1712;
+    --paper-2: #221D16;
+    --ink: #EDE6D6;
+    --ink-soft: #B8AF9B;
+    --oxblood: #C97387;
+    --pin: #8B8677;
+    --rule: rgba(237,230,214,0.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 4.5rem 1.5rem 5rem; }
+
+  /* ---- Masthead ---- */
+  header.masthead {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 1.4rem;
+    align-items: start;
+    margin-bottom: 3.2rem;
+  }
+  .kicker {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    border-right: 1px solid var(--rule);
+    padding-right: 0.9rem;
+    height: 100%;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 6vw, 3.3rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--oxblood);
+  }
+  .dek {
+    margin-top: 0.9rem;
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    max-width: 34ch;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ---- Intro / drop cap ---- */
+  .intro {
+    font-size: 1.12rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.6rem 0;
+    margin-bottom: 2.6rem;
+  }
+  .intro p::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 0.78;
+    float: left;
+    padding: 0.05em 0.09em 0 0;
+    color: var(--oxblood);
+  }
+
+  /* ---- Two-column era section ---- */
+  .eras {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    margin-bottom: 2.6rem;
+  }
+  @media (min-width: 620px) {
+    .eras { grid-template-columns: 1fr 1fr; }
+    .eras .era + .era { border-left: 1px solid var(--rule); padding-left: 2.2rem; }
+  }
+  .era .era-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--oxblood);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .era p { max-width: 42ch; }
+
+  article p { margin-bottom: 1.1rem; max-width: 66ch; }
+  article p:last-child { margin-bottom: 0; }
+
+  /* ---- Pull quote: torn fanzine stamp ---- */
+  .quote-stage {
+    margin: 3.4rem 0;
+    display: flex;
+    justify-content: center;
+  }
+  blockquote {
+    position: relative;
+    max-width: 480px;
+    background: var(--paper-2);
+    border: 1px dashed var(--pin);
+    padding: 1.9rem 1.8rem 1.5rem;
+    transform: rotate(-1.4deg);
+  }
+  blockquote::before {
+    content: "🧷";
+    position: absolute;
+    top: -0.7rem;
+    left: 1.4rem;
+    font-size: 1.1rem;
+    transform: rotate(28deg);
+  }
+  blockquote p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.12rem;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: none;
+  }
+  blockquote footer {
+    margin-top: 0.9rem;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+
+  .closing { margin-top: 2.6rem; }
+
+  /* ---- Sources: index-card footer ---- */
+  footer.sources {
+    margin-top: 4rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--rule);
+  }
+  footer.sources h2 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+  }
+  footer.sources ol {
+    list-style: decimal;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.45rem;
+  }
+  footer.sources a {
+    color: var(--ink);
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+    font-size: 0.92rem;
+  }
+  footer.sources a:hover { text-decoration-color: var(--oxblood); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    header.masthead { animation: rise 0.5s ease-out; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 </head>
 <body>
-    
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="kicker">ENSAIO</span>
+    <div>
+      <h1>Como a moda <em>escancara</em><br>as classes sociais</h1>
+      <p class="dek">Da lei sunturária da nobreza medieval ao rasgo do punk: o tecido sempre denunciou quem pode e quem não pode.</p>
+    </div>
+  </header>
+
+  <article>
+    <div class="intro">
+      <p>Ao longo das décadas, a moda atuou como ferramenta para diferenciar e classificar a posição de um indivíduo na sociedade. Ela simultaneamente divide grupos e une outros; por meio de roupas e acessórios, é julgada a classe social de alguém.</p>
+    </div>
+
+    <div class="eras">
+      <div class="era">
+        <span class="era-label">RENASCIMENTO &amp; IDADE MÉDIA</span>
+        <p>Foi criada uma restrição para comprar tecidos e cores específicas designadas à nobreza, depois que os comerciantes (burgueses enriquecidos) passaram a ter mais acesso a esses tecidos. A nobreza não queria ser confundida com a burguesia — as roupas mantinham a barreira que destacava sua posição social.</p>
+      </div>
+      <div class="era">
+        <span class="era-label">ANOS 70 &mdash; PUNK</span>
+        <p>O movimento trouxe exatamente o oposto: tecidos, imagens, desconstrução de roupas, camisetas com mensagens políticas e tecidos rasgados viraram moda. Foi uma forma de lutar contra o consumo e a austeridade econômica.</p>
+      </div>
+    </div>
+
+    <p>Dado esses exemplos, é inevitável perceber como a moda, querendo ou não, ainda é utilizada como forma de distinção — presente principalmente para identidade, posicionamento político e, claro, divisão de classes sociais, como mostra o texto:</p>
+
+    <div class="quote-stage">
+      <blockquote>
+        <p>&ldquo;O fato é que esse erro toma proporções delirantes desde o momento em que, menos de um século depois, com a economia de consumo absorvendo a economia de produção, a exploração da força de trabalho é englobada pela exploração da criatividade cotidiana. Uma mesma energia arrancada do trabalhador durante suas horas na fábrica ou nas horas de lazer faz rodar as turbinas do poder, que os detentores da velha teoria lubrificam beatamente com a sua contestação formal.&rdquo;</p>
+        <footer>Raoul Vaneigem</footer>
+      </blockquote>
+    </div>
+
+    <div class="closing">
+      <p>Esse trecho mostra o papel da moda hoje. O sistema não apenas define classes pelo que podemos comprar, mas também captura nossa criatividade e nossos movimentos de questionar. Quando o &ldquo;estilo&rdquo; de uma subcultura — como a própria estética punk ou qualquer movimento de resistência — é absorvido pelas grandes marcas, a força política que tinha é ressignificada e transformada em mercadoria.</p>
+
+      <p>Assim, a moda escancara as classes sociais não apenas pelo preço da etiqueta, mas pela forma como o mercado se apropria da nossa expressão cotidiana. Enquanto a elite utiliza a moda para reforçar um status de exclusividade, o sistema de consumo absorve a criatividade das classes populares e dos movimentos sociais, transformando a nossa própria identidade em combustível para as mercadorias. No fim, a moda continua sendo uma ferramenta de poder que, mesmo quando tentamos usá-la para lutar, acaba sendo engolida pela lógica da produção — provando que a distinção de classe hoje reside, sobretudo, na capacidade de não ser apenas um consumidor, mas um sujeito consciente desse ciclo.</p>
+    </div>
+  </article>
+
+  <footer class="sources">
+    <h2>FONTES</h2>
+    <ol>
+      <li><a href="https://www.worldhistory.org/trans/pt/2-1248/roupas-na-inglaterra-medieval/" target="_blank" rel="noopener noreferrer">Roupas na Inglaterra Medieval — World History Encyclopedia</a></li>
+      <li><a href="https://lgbtpodcasters.com.br/a-historia-da-liberdade-moda-como-forma-de-expressao/" target="_blank" rel="noopener noreferrer">A história da liberdade: moda como forma de expressão</a></li>
+    </ol>
+  </footer>
+
+</div>
 </body>
 </html>

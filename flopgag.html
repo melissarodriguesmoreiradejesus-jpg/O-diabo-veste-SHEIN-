@@ -1,13 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>É Flop ou Gag? Poliéster e seus impactos no meio ambiente</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>É flop ou gag? Os impactos do poliéster no meio ambiente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2E9D8;
+    --bg-2: #FFFFFF;
+    --ink: #1A1508;
+    --ink-soft: #5C5136;
+    --rust: #E8481C;
+    --teal: #0E8C7A;
+    --rule: rgba(26,21,8,0.16);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1A1508; --bg-2: #241D0F; --ink: #F7EFDC;
+      --ink-soft: #CBBD96; --rust: #FF6B3D; --teal: #2FE0C3;
+      --rule: rgba(247,239,220,0.18);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1A1508; --bg-2: #241D0F; --ink: #F7EFDC;
+    --ink-soft: #CBBD96; --rust: #FF6B3D; --teal: #2FE0C3;
+    --rule: rgba(247,239,220,0.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: 'Source Serif 4', serif; line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 740px; margin: 0 auto; padding: 4rem 1.5rem 4.5rem; }
+
+  header.masthead { margin-bottom: 3rem; }
+  .kicker {
+    display: inline-block; font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em;
+    color: var(--bg); background: var(--rust);
+    padding: 0.22rem 0.55rem; margin-bottom: 1.1rem;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: clamp(2rem, 6vw, 3rem); line-height: 1.05;
+    letter-spacing: -0.01em; max-width: 15ch;
+  }
+  h1 span { color: var(--rust); }
+  .dek {
+    margin-top: 1rem; font-size: 1.08rem; color: var(--ink-soft);
+    max-width: 46ch; font-style: italic;
+  }
+
+  article p { margin-bottom: 1.15rem; max-width: 64ch; }
+  article p:last-child { margin-bottom: 0; }
+
+  .intro { font-size: 1.1rem; }
+  .intro p::first-letter {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 3.4rem; line-height: 0.75; float: left;
+    padding: 0.06em 0.1em 0 0; color: var(--rust);
+  }
+
+  h2.section {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+    font-size: 1.05rem; margin: 2.6rem 0 1rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule);
+  }
+
+  /* ---- Hazard placard: greenhouse gases ---- */
+  .placard {
+    margin: 1.4rem 0 1.8rem; background: var(--bg-2);
+    border: 1px solid var(--rule); padding: 1.2rem 1.3rem;
+    position: relative;
+  }
+  .placard::before {
+    content: "⚠"; position: absolute; top: -0.65rem; left: 1.1rem;
+    background: var(--rust); color: var(--bg);
+    width: 1.5rem; height: 1.5rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+  }
+  .placard-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem;
+    font-weight: 600; letter-spacing: 0.1em; color: var(--ink-soft);
+    margin-bottom: 0.7rem; padding-top: 0.2rem;
+  }
+  .placard ul { list-style: none; display: grid; gap: 0.4rem; }
+  .placard li {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem;
+    font-weight: 500; display: flex; align-items: baseline; gap: 0.5rem;
+  }
+  .placard li::before { content: "—"; color: var(--rust); }
+  .placard li b { color: var(--teal); font-weight: 600; }
+
+  /* ---- Stat comparison bars ---- */
+  .stat-block { margin: 1.6rem 0 2rem; }
+  .stat-row { margin-bottom: 0.75rem; }
+  .stat-row .label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem;
+    color: var(--ink-soft); margin-bottom: 0.3rem;
+  }
+  .bar-track { background: var(--bg-2); height: 1.6rem; position: relative; }
+  .bar-fill {
+    height: 100%; background: var(--rust); display: flex;
+    align-items: center; padding-left: 0.6rem;
+  }
+  .bar-fill.short { background: var(--teal); }
+  .bar-fill span {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem;
+    font-weight: 600; color: var(--bg);
+  }
+  .stat-note {
+    font-size: 0.92rem; color: var(--ink-soft); margin-top: 0.8rem;
+    max-width: 58ch;
+  }
+
+  sup.fn { color: var(--rust); font-weight: 600; }
+  sup.fn a { color: inherit; text-decoration: none; }
+
+  footer.sources {
+    margin-top: 3.6rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  footer.sources h2 {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    color: var(--ink-soft); margin-bottom: 0.8rem;
+  }
+  footer.sources ol { list-style: decimal; padding-left: 1.2rem; display: grid; gap: 0.45rem; }
+  footer.sources a {
+    color: var(--ink); font-size: 0.86rem;
+    text-decoration-color: var(--rule); text-underline-offset: 3px;
+  }
+  footer.sources a:hover { text-decoration-color: var(--rust); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    header.masthead { animation: rise 0.5s ease-out; }
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
 </head>
 <body>
-    
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="kicker">INVESTIGAÇÃO</span>
+    <h1>É <span>flop</span> ou <span>gag</span>?</h1>
+    <p class="dek">Os impactos reais do poliéster no meio ambiente &mdash; e o que a indústria da moda prefere que você não calcule.</p>
+  </header>
+
+  <article>
+    <div class="intro">
+      <p>Todos nós estamos cansados de ouvir &ldquo;pare de comprar fast fashion!&rdquo; ou então &ldquo;isso faz mal para o meio ambiente&rdquo;; mas saberia me dizer, de fato, o que acontece quando você compra aquele look babadeiro pela Shein? Vem comigo que eu vou te mostrar dados que você jamais ouviu falar.</p>
+    </div>
+
+    <h2 class="section">O efeito estufa, rapidamente</h2>
+    <p>Gases de efeito estufa são moléculas que conseguem reter o calor solar na atmosfera terrestre, aumentando a temperatura média do planeta. O efeito estufa não é necessariamente algo ruim &mdash; afinal, para vivermos com qualidade precisamos da energia térmica que o Sol nos fornece. Porém, com o excesso de emissões que vem ocorrendo desde o início da revolução industrial, no século XIX, o efeito estufa vem se intensificando, esquentando a atmosfera do nosso planeta.</p>
+
+    <div class="placard">
+      <div class="placard-label">PRINCIPAIS GASES DE EFEITO ESTUFA</div>
+      <ul>
+        <li>Vapor de água</li>
+        <li><b>Dióxido de carbono</b> &mdash; maior interferência humana nos últimos 150 anos</li>
+        <li>Metano</li>
+      </ul>
+    </div>
+
+    <h2 class="section">A roupa que dura cada vez menos</h2>
+    <p>Nos últimos anos a indústria da moda tem se moldado para que o tempo de uso de cada peça seja reduzido cada vez mais, gerando maior gasto por parte do consumidor. Segundo dados das Nações Unidas, o número de vezes que uma peça de roupa é usada antes de ser descartada caiu 36% nos últimos anos.</p>
+
+    <div class="stat-block">
+      <div class="stat-row">
+        <div class="label">ANTES</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"><span>100 usos</span></div></div>
+      </div>
+      <div class="stat-row">
+        <div class="label">HOJE</div>
+        <div class="bar-track"><div class="bar-fill short" style="width:64%"><span>64 usos</span></div></div>
+      </div>
+      <p class="stat-note">Ainda segundo a ONU, nos últimos 18 anos o número de peças produzidas anualmente praticamente dobrou: a indústria têxtil produz cada vez mais, os consumidores compram cada vez mais &mdash; e usam cada vez menos. Consequência direta: o descarte anual de roupas só aumenta.</p>
+    </div>
+
+    <h2 class="section">O poliéster</h2>
+    <p>Vamos conhecer outro fator: o poliéster, uma fibra de carbono feita a partir de processos com o próprio petróleo. É uma das principais fibras utilizadas na produção de tecidos e, apesar de barata, carrega uma série de fatores que levam ao aumento dos níveis de poluição globais.</p>
+    <p>Segundo estudos da pesquisadora Natani Aparecida do Bem, da UFPA, o poliéster possui uma taxa de degradação muito mais lenta do que outras fibras, como o algodão. Por ser um polímero com origem no petróleo &mdash; e por demorar tanto para se degradar no meio ambiente &mdash; o poliéster acaba sendo um dos materiais mais degradantes para a natureza, ainda que seja um dos mais utilizados pela indústria têxtil.</p>
+
+    <h2 class="section">O custo humano</h2>
+    <p>É perigoso deixar que a indústria têxtil continue estabelecendo seus impérios e destruindo o planeta cada vez mais. É fato que, em termos de produção, a moda está evoluindo tecnologicamente &mdash; mas precisamos refletir sobre o custo humano que essa evolução cobra.</p>
+    <p>São crescentes os casos de trabalho análogo à escravidão envolvendo a indústria da moda: grandes marcas como Zara<sup class="fn"><a href="#fn1">1</a></sup>, Shein<sup class="fn"><a href="#fn2">2</a></sup> e Gucci<sup class="fn"><a href="#fn3">3</a></sup>, entre outras, utilizam mão de obra escrava em prol dos seus lucros &mdash; além de destruir o meio ambiente e fazer com que os mais pobres sofram as consequências das mudanças climáticas, sem poder interferir diretamente.</p>
+    <p>Será que podemos reverter esse cenário, sendo que quem realmente tem o poder de mudar isso só tem olhado para o próprio bolso? São muitas as convenções internacionais que discutiram e discutem o tema, mas o lucro parece estar sempre acima da humanidade &mdash; sem que haja, de fato, uma mudança na lógica produtiva. Como podemos agir para que os mais poderosos se preocupem, de verdade, com a nossa vida?</p>
+  </article>
+
+  <footer class="sources">
+    <h2>FONTES E NOTAS</h2>
+    <ol>
+      <li>Impactos ambientais das fibras de algodão e poliéster na indústria da moda &mdash; <a href="https://periodicos.ufpa.br/index.php/ncn/article/view/13030" target="_blank" rel="noopener noreferrer">do Bem, Novos Cadernos NAEA</a></li>
+      <li id="fn1"><a href="https://www.comerciarios.org.br/Noticias/4083-Zara-admite-a-CPI-que-houve-trabalho-escravo-na-producao-de-suas-roupas" target="_blank" rel="noopener noreferrer">Zara admite à CPI que houve trabalho escravo na produção de suas roupas &mdash; SECSP</a></li>
+      <li id="fn2"><a href="https://www.metropoles.com/colunas/ilca-maria-estevao/custo-humano-shein-e-denunciada-por-trabalhos-analogos-a-escravidao" target="_blank" rel="noopener noreferrer">Custo humano: Shein é denunciada por trabalhos análogos à escravidão &mdash; Metrópoles</a></li>
+      <li id="fn3"><a href="https://www.metropoles.com/colunas/ilca-maria-estevao/marcas-de-luxo-sao-acusadas-de-trabalho-escravo-na-india" target="_blank" rel="noopener noreferrer">Marcas de luxo são acusadas de trabalho escravo na Índia &mdash; Metrópoles</a></li>
+    </ol>
+  </footer>
+
+</div>
 </body>
 </html>

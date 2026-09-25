@@ -1,13 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autonomia Digital nas Compras</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Autonomia Digital nas Compras</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #fff;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --accent: #a2453d;
+    --rule: #e3e0da;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17140f;
+      --ink: #f1ede4;
+      --muted: #b3ab9c;
+      --accent: #e28178;
+      --rule: #3a352b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17140f;
+    --ink: #f1ede4;
+    --muted: #b3ab9c;
+    --accent: #e28178;
+    --rule: #3a352b;
+  }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  .cover-wrap {
+    position: relative;
+  }
+
+  .cover {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+    display: block;
+  }
+
+  .back-btn {
+    position: absolute;
+    top: calc(1rem + env(safe-area-inset-top, 0px));
+    left: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(26, 26, 26, 0.55);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    transition: background 0.15s ease;
+  }
+
+  .back-btn:hover {
+    background: rgba(26, 26, 26, 0.75);
+  }
+
+  .cover-caption {
+    max-width: 680px;
+    margin: 0.6rem auto 0;
+    padding: 0 1.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .kicker {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    max-width: 14ch;
+  }
+
+  .lede {
+    margin-top: 1.5rem;
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 46ch;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 3rem 0;
+  }
+
+  article p {
+    font-size: 1.05rem;
+    max-width: 62ch;
+    margin-bottom: 1.4rem;
+  }
+
+  article p:first-of-type::first-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 3.4rem;
+    font-weight: 600;
+    float: left;
+    line-height: 0.8;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    color: var(--accent);
+  }
+
+  footer {
+    margin-top: 4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  a { color: var(--accent); }
+
+  @media (max-width: 480px) {
+    main { padding: 3.5rem 1.25rem 4rem; }
+  }
+</style>
 </head>
 <body>
-    
+<div class="cover-wrap">
+  <a class="back-btn" href="index.html" aria-label="Voltar ao início">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    Início
+  </a>
+  <img class="cover" src="Summer_market.jpg" alt="Feira de roupas ao ar livre, com vários vendedores e compradores circulando entre as araras">
+</div>
+<p class="cover-caption">Feira de moda ao ar livre — o consumo também acontece fora das telas.</p>
+<main>
+  <p class="kicker">Moda &amp; tecnologia</p>
+  <h1>Autonomia digital nas compras</h1>
+  <p class="lede">Como escolher roupas, acessórios e tendências na internet de forma consciente, segura e independente.</p>
+
+  <hr>
+
+  <article>
+    <p>A autonomia digital nas compras de moda está relacionada à capacidade das pessoas de utilizarem a internet de forma consciente, segura e independente para escolher roupas, acessórios e tendências. Com o crescimento das lojas online e das redes sociais, a moda passou a fazer parte do cotidiano digital, facilitando o acesso a diferentes estilos e marcas. As redes sociais influenciam diretamente o consumo de moda, principalmente através de influenciadores digitais e propagandas que incentivam novas tendências.</p>
+
+    <p>Por isso, é importante desenvolver um consumo consciente, evitando compras por impulso e valorizando peças realmente necessárias, duráveis e sustentáveis. A autonomia digital também envolve segurança nas compras online. É essencial verificar se o site é confiável, analisar avaliações de outros consumidores, conferir medidas e tomar cuidado com golpes e produtos falsificados.</p>
+
+    <p>Além disso, a internet pode ajudar as pessoas a construírem seu próprio estilo, sem depender totalmente das tendências do momento. A moda pode ser uma forma de expressão da identidade e da personalidade de cada indivíduo.</p>
+
+    <p>Outro ponto importante é conhecer os direitos do consumidor, como troca, devolução e garantia dos produtos comprados online. Dessa forma, o consumidor consegue realizar compras de maneira mais segura e consciente.</p>
+
+    <p>Por fim, a moda digital continua evoluindo com novas tecnologias, como provadores virtuais, inteligência artificial e compras feitas diretamente por aplicativos e redes sociais, transformando cada vez mais a relação entre moda e tecnologia.</p>
+  </article>
+
+  <footer>O diabo veste Shein</footer>
+</main>
 </body>
 </html>

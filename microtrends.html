@@ -10,35 +10,194 @@
 </head>
 </head>
 <body>
-    <section id="Início" class="banner">
-        <div class=banner-conteudo>
-            <h1>Microtrends e o impacto das redes sociais na identidade pessoal</h1>
-            <p>
-                Você realmente se conhece?
-            </p>
-            <a href="#principaismaterias" class="btn">Voltar para o início</a>
-        </div>
-        
-    </section>
+    
+    <title>Microtrends e o impacto das redes sociais na identidade pessoal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap');
 
-    !--TOPO DO SITE--
-    <header>
-        <img src="foto1.png" alt="logo do site" class="logo">
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html">Início</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+  :root {
+    --bg: #fff;
+    --ink: #1a1a1a;
+    --muted: #5c5c5c;
+    --accent: #a2453d;
+    --rule: #e3e0da;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
 
-    !--CORPO DA MATÉRIA--
-    <main>
-        <article>
-            <h1>Microtrends e o impacto das redes sociais na identidade pessoal</h1>
-            
-        </article>
-    </main>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17140f;
+      --ink: #f1ede4;
+      --muted: #b3ab9c;
+      --accent: #e28178;
+      --rule: #3a352b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17140f;
+    --ink: #f1ede4;
+    --muted: #b3ab9c;
+    --accent: #e28178;
+    --rule: #3a352b;
+  }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 6rem;
+  }
+
+  .kicker {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    max-width: 20ch;
+  }
+
+  .lede {
+    margin-top: 1.5rem;
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 46ch;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 3rem 0;
+  }
+
+  article p {
+    font-size: 1.05rem;
+    max-width: 62ch;
+    margin-bottom: 1.4rem;
+  }
+
+  article p:first-of-type::first-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 3.4rem;
+    font-weight: 600;
+    float: left;
+    line-height: 0.8;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    color: var(--accent);
+  }
+
+  article img {
+
+    width: 100%;
+  height: 700px;
+  background-color: var(--cor-placeholder);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  }
+
+  footer {
+    margin-top: 4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .btn {
+    background-color: #963232;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+  a { color: var(--accent); }
+
+  @media (max-width: 480px) {
+    main { padding: 3.5rem 1.25rem 4rem; }
+  }
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<main>
+
+  <p class="kicker">Por: Giulia Leite </p>
+
+  <h1>Microtrends e o impacto das redes sociais na identidade pessoal</h1>
+  
+  <p class="lede">“Quem é você” </p>
+
+  <hr>
+
+  <article>
+
+    <p>
+        Você sabe quem é?
+    </p>
+
+    <p>
+        Obviamente essa não é uma pergunta fácil de responder. Até porque, levamos uma vida inteira para nos descobrir, desconstruir e reconstruir de novo a essência e a imagem que temos de nós. Como parte do processo, experimentamos rotinas, trabalhos, artes, roupas, estilos, comidas, para que de alguma formar tentemos nos encontrar no meio de nossas experiências...e isso leva tempo. Ser humano é estar em movimento, a todo tempo. 
+    </p>
+    
+    <p>
+        Com o início das redes sociais, pudemos ter a oportunidade de compartilhar isso com o mundo! Pessoas ao redor do globo postavam suas experiencias, pensamentos, reflexões. E assim, também aprendíamos com os outros. 
+    </p>
+
+    <p>
+        Porém, com o sucesso ápice das redes sociais, hoje vemos uma nova forma de olhar e consumir essas plataformas. O que antes era um espaço digital para lazer e compartilhar momentos cotidianos, agora se tornou uma feira digital que a todo momento tenta te convencer a consumir e comprar o que é apenas agradável aos seus olhos. A mídia social virou uma disputa com quem tem mais, quem gasta mais e quem usa mais e isso se tornou insuportável. 
+    </p>
+
+    <img src="micro2.png">
+
+    <p>
+        Microtrends como clean girl, óculos Miumiu, old money, farmcore são alguns nomes que circulam pela internet. Talvez você nunca tenha ouvido falar delas e está tudo bem já que elas são criadas justamente para isso: venderem e durarem pouco. Além de que muitas delas se misturam e venham à tona de uma vez só em um só algoritmo. O algoritmo se tornou mais essencial em nossas escolhas de vestimenta do que nosso próprio pensamento crítico e nesses espaços os usuários acabam escolhendo frequentemente esses “estilos” por aprovação em vez de próprio gosto. Saber verdadeiramente seu estilo é se conhecer para saber o que você se agrada e o porquê disso. 
+    </p>
+
+    <p>
+        Com o passar do tempo, aquilo que poderia demorar anos para ter um significado na pessoa que você, agora mais do que nunca passa a ser pelos status e pela propaganda. Claro, isso não se significa que você não possa usar aquela jaqueta, tênis ou aquele acessório que bombou – se fossemos desconstruir todas as tendências, aquilo que é o coração da indústria da moda seria destruído totalmente. -, a questão é o motivo que te levar a consumir isso.  
+
+    </p>
+
+    <a href="index.html" class="btn">Voltar para o início</a>
+
+  </article>
+
+  <footer>O diabo veste Shein</footer>
+
+</main>
+
 </body>
+
 </html>
