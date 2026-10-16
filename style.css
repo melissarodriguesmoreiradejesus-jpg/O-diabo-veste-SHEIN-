@@ -227,105 +227,104 @@ section h2 {
 
 /* SOBRE NÓS */
 
-.sobre  {
-    background-color: #1d1d1d;
-    color: white;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-
-
+.grid-sobre {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  margin-top: 40px;
 }
 
-.sobre h2 {
-    color: #b66464;
+.foto-redonda {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%; /* isso que faz virar um círculo */
+  background-color: var(--cor-placeholder);
+  margin-bottom: 24px;
+  overflow: hidden;
 }
 
-.sobre-box {
-    background-color: #d62828;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+/* se colocar uma foto real dentro do círculo: */
+.foto-redonda img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.sobre-info {
-    flex: 1;
-    min-width: 260px;
+.pessoa p {
+  font-size: 0.95rem;
+  color: #333;
 }
 
-.sobre-box h3 {
-    font-size: 28px;
-    margin-top: 15px;
-
+@media (max-width: 768px) {
+  .grid-sobre {
+    grid-template-columns: 1fr; /* 1 coluna só no celular */
+  }
 }
-
-.sobre-box h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    color:#f8efef;
-    text-align: left-up;
-}
-
-.div {
-    margin: 10ox 20px 30px 40px;
-}
-
 
 /* PROJETOS */
 
-.projetos  {
-    background-color: #1d1d1d;
-    color: white;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-
-
+.secao-projetos {
+  padding: 80px 40px 80px 150px; /* 150px pra não ficar por baixo da sidebar */
 }
 
-.projetos h2 {
-    color: #b66464;
+.secao-projetos h2 {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
-.projetos-box {
-    background-color: #d62828;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+.mini-descricao {
+  color: #999;
+  margin: 20px 0 40px;
 }
 
-.projetos-info {
-    flex: 1;
-    min-width: 260px;
+/* o "arrastar pra ir passando mais projetos" é isso aqui: */
+.carrossel-projetos {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;       /* permite rolar de lado */
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory; /* ajuda a "encaixar" um card por vez ao arrastar */
 }
 
-.projetos-box h3 {
-    font-size: 28px;
-    margin-top: 15px;
-
+.card-projeto {
+  flex: 0 0 340px;        /* cada card tem largura fixa e não encolhe */
+  scroll-snap-align: start;
 }
 
-.projetos-box h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    color:#f8efef;
-    text-align: left-up;
+.card-imagem {
+  position: relative;
+  height: 280px;
+  background-color: var(--cor-placeholder);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 20px;
 }
 
-.div {
-    margin: 10ox 20px 30px 40px;
+.botao-saiba-mais {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f2994a; /* laranja do wireframe */
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;      /* deixa o botão em formato de pílula */
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.resumo-projeto {
+  margin-top: 12px;
+  color: #777;
+  font-size: 0.9rem;
 }
 
 /* CONTATO */
