@@ -1,232 +1,382 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paris influencia, São Paulo transforma</title>
-  <meta name="description" content="O que é uma Fashion Week, o que apareceu em Paris e o que esperar da SPFW.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --noite: #0e1a33;
-      --ouro: #c9953c;
-      --papel: #f4f6fa;
-      --texto: #1b2438;
-      --suave: #5b6578;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microtrends e o impacto das redes sociais na identidade pessoal — Diabo Veste Shein</title>
 
-      --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-      --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  <style>
+    /* =====================================================================
+       CSS  →  se quiser separar, salve como style.css e use
+       <link rel="stylesheet" href="style.css"> no <head>
+       ===================================================================== */
+
+    :root {
+      --cor-fundo: #fdf6e9;
+      --cor-sidebar: #4d4d4d;
+      --cor-placeholder: #575757;
+      --cor-texto: #1a1a1a;
+      --cor-linha: #d8cfc0;
+      --fonte-titulo: "Arial", "Helvetica", sans-serif;
+      --fonte-texto: "Georgia", serif;
+      /* nome do blog na barra de cima: serifada de alto contraste */
+      --fonte-marca: "Didot", "Bodoni MT", "Playfair Display", "Georgia", serif;
     }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      margin: 0;
-      background: var(--papel);
-      color: var(--texto);
-      font-family: var(--sans);
-      font-size: 1.0625rem;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      font-family: var(--fonte-texto);
+      line-height: 1.6;
     }
 
-    /* ---------- Capa ---------- */
-    .hero {
-      position: relative;
-      min-height: 80vh;
+    /* --- Logo (balão no canto) — some quando a pessoa rola -------------- */
+    .logo-balao {
+      position: fixed;
+      top: 36px;
+      left: 25px;
+      z-index: 30;
+      width: 115px;
+      height: 90px;
+      background-color: #fff;
+      border-radius: 45px 6px 6px 45px;
       display: flex;
       align-items: center;
-      background-color: var(--noite);
-      background-image: url("images/parisfashionweek_1.jpg");
-      background-size: cover;
-      background-position: 30% center;
-      background-repeat: no-repeat;
-    }
-
-    /* camada escura sobre a foto para o texto ficar legível */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(14, 26, 51, 0.8) 0%, rgba(14, 26, 51, 0.45) 60%, rgba(14, 26, 51, 0.25) 100%);
-    }
-
-    .hero-text {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-      color: #fff;
-    }
-
-    .hero h1 {
-      margin: 0 0 1rem;
-      font-family: var(--serif);
-      font-weight: 600;
-      font-size: clamp(2.8rem, 8vw, 6rem);
-      line-height: 1;
-      letter-spacing: -0.01em;
-    }
-
-    .hero p {
-      margin: 0;
-      max-width: 34rem;
-      font-size: 1.15rem;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    /* ---------- Matéria ---------- */
-    .article {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 4.5rem 1.5rem 3rem;
-    }
-
-    .article p { margin: 0 0 1.4rem; }
-
-    .lead {
-      font-family: var(--serif);
-      font-size: 1.55rem;
-      line-height: 1.45;
-      font-weight: 500;
-      color: var(--noite);
-    }
-
-    .article h2 {
-      margin: 3.5rem 0 1rem;
-      font-family: var(--serif);
-      font-size: 2.1rem;
-      line-height: 1.15;
-      font-weight: 700;
-      color: var(--noite);
-    }
-
-    blockquote {
-      margin: 2.5rem 0;
-      padding: 0.25rem 0 0.25rem 1.5rem;
-      border-left: 3px solid var(--ouro);
-      font-family: var(--serif);
-      font-size: 1.7rem;
-      line-height: 1.35;
-      font-weight: 500;
-      color: var(--noite);
-    }
-
-    /* ---------- Rodapé ---------- */
-    .footer {
-      padding: 2rem 1.5rem 3rem;
+      justify-content: center;
       text-align: center;
-      font-size: 0.9rem;
-      color: var(--suave);
+      font-family: var(--fonte-titulo);
+      font-size: 0.75rem;
+      line-height: 1.3;
+      color: var(--cor-texto);
+      text-decoration: none;
+      transition: opacity 0.3s ease, visibility 0s;
     }
 
-    .footer p { margin: 0; }
+    body.rolou .logo-balao {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0s 0.3s;
+    }
 
-    /* ---------- Mobile ---------- */
-    @media (max-width: 600px) {
-      body { font-size: 1rem; }
-      .hero { min-height: 70vh; }
-      .hero-text { padding: 2rem 1.5rem; }
-      .lead { font-size: 1.3rem; }
-      .article h2 { font-size: 1.8rem; }
-      blockquote { font-size: 1.4rem; }
+    /* --- Barra superior — aparece quando a pessoa rola ------------------ */
+    .topbar {
+      position: fixed;
+      top: 14px;
+      left: 190px;
+      right: 160px;
+      z-index: 40;
+      height: 62px;
+      padding: 0 40px 0 60px;
+      background-color: #fff;
+      border-radius: 31px 6px 6px 31px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-24px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+    }
+
+    body.rolou .topbar {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+    }
+
+    .topbar .nome-blog {
+      font-family: var(--fonte-marca);
+      font-size: 1.75rem;
+      line-height: 1;
+      color: var(--cor-texto);
+      text-decoration: none;
+    }
+
+    .topbar .fechar {
+      font-family: var(--fonte-titulo);
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--cor-texto);
+      text-decoration: none;
+      padding: 8px;
+    }
+
+    body.rolou .sidebar { top: 160px; } /* sobe um pouquinho, como no wireframe */
+
+    .sidebar a {
+      color: #fff;
+      font-family: var(--fonte-titulo);
+      font-size: 1.35rem;
+      line-height: 1;
+      text-decoration: none;
+      padding: 6px 12px;
+    }
+
+    .sidebar a:hover { opacity: 0.7; }
+
+    /* --- Conteúdo -------------------------------------------------------- */
+    .pagina {
+      padding-left: 120px; /* espaço da sidebar */
+    }
+
+    .conteudo {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 70px 24px 140px;
+    }
+
+    .cabecalho-materia h1 {
+      font-family: var(--fonte-titulo);
+      font-weight: 800;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .autor {
+      font-style: italic;
+      font-size: 0.95rem;
+      margin-bottom: 26px;
+    }
+
+    .divisoria {
+      border: none;
+      border-top: 1px solid var(--cor-linha);
+    }
+
+    /* Foto de capa (placeholder) */
+    .imagem-capa {
+      max-width: 600px;
+      height: 324px;
+      margin: 36px auto 40px;
+      background-color: var(--cor-placeholder);
+      border-radius: 40px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--fonte-titulo);
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    .imagem-capa2 {
+      max-width: 600px;
+      height: 324px;
+      margin: 36px auto 40px;
+      background-color: var(--cor-placeholder);
+      border-radius: 40px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--fonte-titulo);
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    /* quando trocar o placeholder por uma foto de verdade: */
+    .imagem-capa img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Texto da matéria */
+    .texto {
+      max-width: 640px;
+      margin: 0 auto;
+      padding-top: 40px; /* respiro quando não há foto de capa */
+    }
+
+    .imagem-capa + .texto { padding-top: 0; }
+
+    .texto p {
+      font-size: 1.125rem;
+      line-height: 1.5;
+      text-align: justify;
+      hyphens: auto;
+      margin-bottom: 22px;
+    }
+
+    .texto h2 {
+      font-family: var(--fonte-titulo);
+      font-weight: 800;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      margin: 36px 0 16px;
+    }
+
+    /* Foco visível para quem navega pelo teclado */
+    .logo-balao:focus-visible,
+    .topbar a:focus-visible,
+    .sidebar a:focus-visible {
+      outline: 3px solid var(--cor-destaque, #f2994a);
+      outline-offset: 2px;
+    }
+
+    .imagem-texto {
+      max-width: 600px;
+      height: 600px;
+      margin: 36px auto 40px;
+      background-color: var(--cor-placeholder);
+      border-radius: 40px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--fonte-titulo);
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+
+
+    /* quando trocar o placeholder por uma foto de verdade: */
+    .imagem-texto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      .logo-balao, .topbar, .sidebar { transition: none !important; }
+    }
+
+    /* --- Celular --------------------------------------------------------- */
+    @media (max-width: 768px) {
+      .logo-balao {
+        top: 14px;
+        left: 14px;
+        width: 92px;
+        height: 70px;
+        border-radius: 35px 6px 6px 35px;
+        font-size: 0.65rem;
+      }
+
+      .topbar {
+        top: 10px;
+        left: 12px;
+        right: 12px;
+        height: 54px;
+        padding: 0 20px 0 28px;
+      }
+
+      .topbar .nome-blog { font-size: 1.25rem; }
+
+      /* a barra lateral vira uma pílula fixa na parte de baixo da tela */
+      .sidebar,
+      body.rolou .sidebar {
+        top: auto;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        gap: 12px;
+        padding: 8px 20px;
+        border-radius: 999px;
+      }
+
+      .pagina { padding-left: 0; }
+
+      .conteudo { padding: 110px 20px 120px; }
+
+      .imagem-capa { height: 220px; border-radius: 28px; }
     }
   </style>
 </head>
+
 <body>
 
-  <header class="hero">
-    <div class="hero-text">
-      <h1>Paris influencia,<br>São Paulo transforma</h1>
-      <p>O que é uma Fashion Week e por que esses eventos chamam tanta atenção.</p>
-    </div>
-  </header>
+  <!-- =====================================================================
+       HTML
+       ===================================================================== -->
 
-  <main class="article">
+  <!-- Logo: visível no topo da página, some ao rolar -->
+  <a class="logo-balao" href="index.html" aria-label="Voltar para o início">
+    <span>logo e/ou<br>sigla</span>
+  </a>
 
-    <p class="lead">
-      Se você gosta de moda, provavelmente já viu fotos de desfiles em Paris, modelos usando looks diferentes do que estamos acostumados a ver nas lojas e celebridades aparecendo na primeira fila. Mas, afinal, o que é uma Fashion Week e por que esses eventos chamam tanta atenção?
-    </p>
+  <!-- Barra superior: aparece ao rolar. O X leva de volta para o início -->
+  <div class="topbar">
+    <a class="nome-blog" href="index.html">Diabo Veste Shein</a>
+    <a class="fechar" href="index.html" aria-label="Fechar matéria e voltar para o início">✕</a>
+  </div>
 
-    <p>
-      As semanas de moda são grandes eventos em que marcas e estilistas apresentam suas novas coleções para as próximas temporadas. É nesse momento que muitas ideias começam a aparecer: roupas, cores, tecidos, acessórios, maquiagens e até novas formas de usar peças que já conhecemos. As principais Fashion Weeks do mundo acontecem em cidades como Nova York, Londres, Milão e Paris, e cada uma tem sua própria identidade. Entre elas, Paris continua sendo uma das mais importantes e também uma das que mais conseguem chamar a atenção do público.
-    </p>
+  <div class="pagina">
+    <main class="conteudo">
+      <article>
 
-    <h2>Paris Fashion Week</h2>
-    <p>
-      A Paris Fashion Week é praticamente um dos grandes momentos do calendário da moda. Além de reunir algumas das maiores marcas do mundo, a semana também é importante porque apresenta novos caminhos para a indústria. Na edição de outono/inverno 2026, que aconteceu em março, marcas como Dior, Chanel, Balenciaga, Hermès e Chloé estiveram entre os nomes que movimentaram a temporada.
-    </p>
-    <p>
-      Um dos assuntos que mais chamou atenção foi a chegada de novos diretores criativos em grandes maisons. Jonathan Anderson, por exemplo, apresentou sua primeira coleção feminina para a Dior, enquanto Matthieu Blazy mostrou uma nova fase da Chanel. Essas mudanças são importantes porque o diretor criativo costuma ter uma influência enorme na identidade de uma marca. Quando uma pessoa nova assume esse cargo, é comum que apareçam novas ideias, novas referências e até uma mudança na maneira como a marca conversa com o público.
-    </p>
+        <header class="cabecalho-materia">
+          <h1>Microtrends e o impacto das redes sociais na identidade pessoal</h1>
+          <p class="autor">Por: Giulia Leite</p>
+          <hr class="divisoria">
+        </header>
 
-    <h2>O que apareceu nas últimas coleções?</h2>
-    <p>
-      Uma coisa interessante nas últimas temporadas é que a moda não parece estar seguindo uma única direção. Em vez de existir uma tendência que simplesmente domina tudo, diferentes estilos estão aparecendo ao mesmo tempo. A alfaiataria continua forte, peças mais estruturadas ganharam espaço e referências de outras décadas também voltaram a aparecer.
-    </p>
-    <p>
-      Os ombros marcados são um exemplo disso. A tendência lembra bastante os anos 1980, mas voltou em versões mais atuais, mostrando como a moda costuma pegar algo do passado e transformar para o presente. Também existe uma mistura maior entre peças mais elegantes e elementos do dia a dia. É aquela ideia de usar uma roupa mais arrumada com algo mais casual, misturar diferentes estilos e não ficar preso a uma única estética.
-    </p>
+        <!-- Foto de capa (opcional: apague este bloco se a matéria não tiver foto) -->
+        <figure class="imagem-capa">
+          <img src="foto1.png" alt="foto capa">
+        
+        </figure>
 
-    <blockquote>
-      Nem tudo que aparece na passarela vai virar tendência, e nem tudo foi feito pensando em ser usado exatamente daquele jeito na rua.
-    </blockquote>
+        <div class="texto">
 
-    <p>
-      E talvez seja justamente isso que torna os desfiles interessantes. Muitas vezes, o desfile serve para apresentar uma ideia. Depois, essa ideia vai sendo adaptada por outras marcas, influenciadores, celebridades e pelo próprio público.
-    </p>
+          <h2>“Quem é você”</h2>
 
-    <h2>Quando a passarela chega às redes sociais</h2>
-    <p>
-      A Fashion Week também mudou muito por causa da internet. Antigamente, para acompanhar um desfile era necessário estar no evento ou esperar revistas e jornais publicarem as fotos. Hoje, alguns minutos depois de uma coleção ser apresentada, imagens e vídeos já estão circulando pelo TikTok, Instagram e outras redes. Um look que apareceu em Paris pode rapidamente virar referência para produções de pessoas do outro lado do mundo.
-    </p>
-    <p>
-      Isso também explica por que algumas tendências parecem surgir do nada. Na verdade, muitas delas começaram meses antes em uma coleção, mas só ganharam atenção quando começaram a aparecer nas redes. Uma bolsa, uma modelagem de calça, uma cor ou até uma forma diferente de usar uma peça pode ser suficiente para começar uma nova onda.
-    </p>
+          <p>Você sabe quem é?</p>
 
-    <h2>E São Paulo?</h2>
-    <p>
-      Enquanto Paris tem um peso enorme no cenário internacional, São Paulo tem uma importância especial para a moda brasileira. A São Paulo Fashion Week, mais conhecida como SPFW, é uma das principais semanas de moda do país e funciona como espaço para marcas e estilistas brasileiros apresentarem suas coleções. Só que existe uma diferença interessante quando olhamos para São Paulo. A moda daqui tem a possibilidade de mostrar referências que fazem parte da nossa própria cultura, como música, arte, vida urbana, diferentes regiões do Brasil e a mistura de estilos que existe nas ruas.
-    </p>
-    <p>
-      Em 2026, o calendário da moda brasileira passou por algumas mudanças e a SPFW ficou concentrada no segundo semestre. A próxima edição está prevista para outubro, então, até o momento, São Paulo ainda não teve sua edição deste ano. Isso faz com que a comparação com Paris fique ainda mais interessante. Enquanto Paris já apresentou uma nova temporada e movimentou o mercado internacional, São Paulo ainda está se preparando para mostrar o que vem por aqui.
-    </p>
+          <p>Obviamente essa não é uma pergunta fácil de responder. Até porque, levamos uma vida inteira para nos descobrir, desconstruir e reconstruir de novo a essência e a imagem que temos de nós. Como parte do processo, experimentamos rotinas, trabalhos, artes, roupas, estilos, comidas, para que de alguma formar tentemos nos encontrar no meio de nossas experiências...e isso leva tempo. Ser humano é estar em movimento, a todo tempo.</p>
 
-    <h2>Paris influencia, São Paulo transforma</h2>
-    <p>
-      É claro que Paris tem uma influência enorme na moda mundial. Mas isso não significa que tudo o que aparece por lá simplesmente chegue ao Brasil do mesmo jeito. Uma tendência pode ser apresentada em Paris e depois ganhar outra interpretação em São Paulo. É justamente essa mistura que faz a moda continuar mudando.
-    </p>
-    <p>
-      Uma peça pode aparecer em uma passarela internacional de uma forma superproduzida e, meses depois, chegar às ruas em uma versão bem mais simples. Uma modelagem pode ser adaptada para outro clima, outra cultura ou outro estilo de vida. E é aí que entram os diferentes mercados da moda. Cada lugar pega as referências que recebe e transforma de acordo com seu próprio público.
-    </p>
+          <p>Com o início das redes sociais, pudemos ter a oportunidade de compartilhar isso com o mundo! Pessoas ao redor do globo postavam suas experiencias, pensamentos, reflexões. E assim, também aprendíamos com os outros.</p>
 
-    <h2>Por que tudo isso importa?</h2>
-    <p>
-      No fim das contas, uma Fashion Week não é só sobre roupas bonitas ou looks diferentes. Esses eventos ajudam a mostrar o que está acontecendo na indústria e quais ideias podem ganhar força nos próximos meses. Eles também movimentam marcas, modelos, fotógrafos, maquiadores, estilistas, criadores de conteúdo e muitos outros profissionais.
-    </p>
-    <p>
-      E não é preciso acompanhar todos os desfiles para perceber essa influência. Talvez você veja uma tendência no Instagram, uma peça diferente em uma loja ou alguém usando um determinado estilo na rua sem saber que aquela ideia apareceu primeiro em uma passarela.
-    </p>
-    <p>
-      Paris continua sendo um dos grandes pontos de referência da moda mundial, enquanto São Paulo tem a missão de mostrar que a moda brasileira também tem voz, identidade e criatividade. E quando a próxima SPFW finalmente acontecer, vai ser interessante descobrir quais ideias vão aparecer por aqui.
-    </p>
+          <p>Porém, com o sucesso ápice das redes sociais, hoje vemos uma nova forma de olhar e consumir essas plataformas. O que antes era um espaço digital para lazer e compartilhar momentos cotidianos, agora se tornou uma feira digital que a todo momento tenta te convencer a consumir e comprar o que é apenas agradável aos seus olhos. A mídia social virou uma disputa com quem tem mais, quem gasta mais e quem usa mais e isso se tornou insuportável.</p>
 
-  </main>
+          <figure class="imagem-texto">
+          <img src="micro2.png" alt="Descrição da foto">
+          </figure>
 
-  <footer class="footer">
-    <p>Matéria 2310</p>
-  </footer>
+
+          <p>Microtrends como clean girl, óculos Miumiu, old money, farmcore são alguns nomes que circulam pela internet. Talvez você nunca tenha ouvido falar delas e está tudo bem já que elas são criadas justamente para isso: venderem e durarem pouco. Além de que muitas delas se misturam e venham à tona de uma vez só em um só algoritmo. O algoritmo se tornou mais essencial em nossas escolhas de vestimenta do que nosso próprio pensamento crítico e nesses espaços os usuários acabam escolhendo frequentemente esses “estilos” por aprovação em vez de próprio gosto. Saber verdadeiramente seu estilo é se conhecer para saber o que você se agrada e o porquê disso.</p>
+
+
+          <p>Com o passar do tempo, aquilo que poderia demorar anos para ter um significado na pessoa que você, agora mais do que nunca passa a ser pelos status e pela propaganda. Claro, isso não se significa que você não possa usar aquela jaqueta, tênis ou aquele acessório que bombou – se fossemos desconstruir todas as tendências, aquilo que é o coração da indústria da moda seria destruído totalmente. -, a questão é o motivo que te levar a consumir isso.</p>
+
+          <p>Nesse cenário de vitrine virtual, o pensamento crítico se mostra não apenas necessário, mas essencial como uma habilidade prática para a vida. É urgente questionar se estamos escolhendo nossas roupas, acessórios e "identidades" por uma preferência autêntica ou simplesmente buscando validação e aprovação em espaços moldados por algoritmos invisíveis. A verdadeira moda e a formação do nosso 'eu' não deveriam ser ditadas por uma rolagem infinita de tela, mas sim pela compreensão real de quem somos e do que nos faz sentir bem, independentemente do que está "viralizando".</p>
+
+          <p>Portanto, ao voltarmos à pergunta inicial — "Quem é você?" —, fica claro que a resposta jamais poderá ser encontrada em uma microtrend passageira ou no fundo de um carrinho de compras online. Construir uma identidade é um trabalho contínuo, interno e profundamente pessoal que exige tempo e vivência. Participar das tendências e consumir moda pode, sim, ser divertido e válido, desde que você seja o protagonista consciente de suas escolhas, e não um refém do algoritmo. Afinal, a estética de hoje inevitavelmente será esquecida amanhã, mas a sua essência é a única coisa que permanecerá quando as telas se apagarem.</p>
+        </div>
+
+      </article>
+    </main>
+  </div>
+
+
+  <!-- =====================================================================
+       JAVASCRIPT  →  controla o que muda quando a pessoa rola a página
+       (pode ficar aqui ou num arquivo script.js, sempre no final do <body>)
+       ===================================================================== -->
+  <script>
+    (function () {
+      const DISTANCIA = 80; // quantos pixels rolar antes de trocar logo → barra superior
+
+      function atualizar() {
+        document.body.classList.toggle('rolou', window.scrollY > DISTANCIA);
+      }
+
+      window.addEventListener('scroll', atualizar, { passive: true });
+      atualizar(); // já confere ao abrir (caso a página abra no meio)
+    })();
+  </script>
 
 </body>
 </html>

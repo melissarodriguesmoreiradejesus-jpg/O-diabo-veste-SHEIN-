@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Diabo Veste Shein</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+ 
 </head>
 <body>
-    
+   
     <!--MENU-->
     <nav class="menu">
         <div class="logo">
-            👠​ O Diabo Veste Shein
+            👠 O Diabo Veste Shein
         </div>
-
+ 
         <div class="menu-links">
             <a href="#principaismaterias">Principais Matérias</a>
             <a href="#Brechós">Brechós</a>
@@ -23,7 +23,7 @@
             <a href="#Projetos">Projetos</a>
         </div>
     </nav>
-
+ 
     <!--BANNER-->
     <section id="Início" class="banner">
         <div class=banner-conteudo>
@@ -37,11 +37,11 @@
        
     <!--MATÉRIAS-->
     <section id="principaismaterias" class="principaismaterias">
-
+ 
         <h2> Leia nossas matérias</h2>
-
+ 
         <div class="cards">
-
+ 
             <!--MICROTRENDS-->
             <div class="card">
                 <img src="foto1.png"
@@ -53,237 +53,451 @@
                 <p>
                     por: Giulia Leite
                 </p>
-
+ 
                 <a href="microtrends.html">leia aqui</a>
-
+ 
             </div>
-
+ 
             <!--AUTONOMIA DIGITAL-->
             <div class="card">
                 <img src="NANM-SPRING-25.png"
                 alt="Autonomia digital nas compras">
                 <h3>Autonomia digital nas compras</h3>
-
+ 
                 <p>
                     descrição da matéria
                 </p>
-
+ 
                 <p>
                     por: Alice Martins
                 </p>
-
+ 
                 <a href="autonomia.html">leia aqui</a>
-
+ 
             </div>
-
+ 
             <!--FLOP OU GAG-->
             <div class="card">
                 <img src="download-_1_.png"
                 alt="É flop ou gag? Poliéster e seus impactos no meio ambiente">
-
+ 
                 <h3>É flop ou gag? Poliéster e seus impactos no meio ambiente</h3>
                 <p>
                     descrição da matéria
                 </p>
-
+ 
                 <p>
                     por: Andy Andrade
                 </p>
                 <a href="flopgag.html">leia aqui</a>
             </div>
-
+ 
             <!--MODA E CLASSES SOCIAIS-->
             <div class="card">
                 <img src="modaeclassessociais.png"
                 alt="Como a moda escancara as classes sociais">
-
+ 
                 <h3>Como a moda escancara as classes sociais</h3>
                 <p>
                     descrição da matéria
                 </p>
-
+ 
                 <p>
                     por: Melissa Rodrigues
                 </p>
                 <a href="modaeclassessociais.html">leia aqui</a>
             </div>
-
+ 
             <!--FASHION WEEK-->
             <div class="card">
-                <img src="parisfashionweek.png" 
+                <img src="parisfashionweek.png"
                 alt="Principais notícias da Paris/São Paulo Fashion Week!">
-
+ 
                 <h3>Principais notícias da Paris/São Paulo Fashion Week!</h3>
                 <p>
                     descrição da matéria
                 </p>
-
+ 
                 <p>
                     por: Rebeca Costa
                 </p>
                 <a href="parisfashionweek.html">leia aqui</a> <!--MUDAR PÁGINA-->
             </div>
-            
-            
+           
+           
         </div>
-
+ 
     </section>
-
-    <!--BRECHÓ?-->
-    <section id="Brechós" class="brechos">
-
+ 
+    <!--BRECHÓS (MAPA DO GOOGLE)-->
+    <section class="secao-brechos" id="Brechós">
         <h2>Nossas recomendações de brechós por perto!</h2>
-
-    <div class="brecho-box">
-        <div class="brecho-info">
-            <h1>brechó</h1>
-
-            <p> 
-                breve descrição do brechó
-            </p>
-
-            <span> abra no Maps!</span>
+        <hr class="divisoria">
+        <p class="mini-descricao">Veja brechós e lojas de segunda mão perto da região ou de você.</p>
+ 
+        <div class="brechos-layout">
+ 
+            <aside class="brechos-painel">
+                <div class="brecho-destaque" aria-live="polite">
+                    <h3 id="destaque-nome">Escolha um brechó</h3>
+                    <p id="destaque-info">Toque num brechó da lista para ver no mapa.</p>
+                    <div class="acoes" id="destaque-acoes" hidden>
+                        <a id="destaque-maps" class="botao-maps" href="#" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+                        <a id="destaque-site" class="link-site" href="#" target="_blank" rel="noopener noreferrer" hidden>Site do brechó</a>
+                    </div>
+                </div>
+ 
+                <ul class="brechos-lista" id="lista" aria-label="Brechós encontrados"></ul>
+            </aside>
+ 
+            <div class="brechos-mapa">
+                <iframe id="mapa"
+                    title="Mapa de brechós no Google Maps"
+                    src="https://www.google.com/maps?q=brech%C3%B3s+S%C3%A3o+Paulo&z=13&output=embed"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+ 
+                <div class="ferramentas">
+                    <button type="button" id="btn-local">Perto de mim</button>
+                    <button type="button" id="btn-todos">Ver todos no mapa</button>
+                </div>
+ 
+                <p class="status-mapa" id="status" role="status"></p>
+            </div>
+ 
         </div>
-        
-        <div class="mapa">
-        <h2> Veja brechós perto da região!</h2>
-
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.905187168775!2d-46.65613968452086!3d-23.5642249846864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c5e7b8e9b9%3A0x8a5c5c5c5c5c5c5c!2sBrech%C3%B3%20da%20Moda!5e0!3m2!1spt-BR!2sbr!4v1623456789012"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        git-scm.com
-
-    </div>
     </section>
-
+ 
     <!--SOBRE NÓS-->
-
+ 
     <section class="secao-sobre" id="sobre">
   <h2>Sobre nós</h2>
   <hr class="divisoria">
   <p class="mini-descricao">Conheça nosso grupo!</p>
-
+ 
   <div class="grid-sobre">
-
+ 
     <div class="Alice">
-
+ 
       <div class="foto-redonda">
-
+ 
         <img src="alice_foto.png" alt="Alice Martins">
-
+ 
         <!-- depois troca por: <img src="foto1.jpg" alt="Nome da pessoa"> -->
-
+ 
       </div>
       <p>Meu nome é Alice e tenho 17 anos! Gosto de moda para poder expressar minha criatividade. Uma das referências que amo é a Sonic Starquakes da Iris Van Herpen!</p>
     </div>
-
+ 
     <div class="Rebeca">
-        
+       
       <div class="foto-redonda">
-
+ 
         <img src="rebeca_foto.png" alt="Rebeca Costa">
-
+ 
         <!-- depois troca por: <img src="foto1.jpg" alt="Nome da pessoa"> -->
-
+ 
       </div>
       <p>Meu nome é Rebeca, tenho 17 anos. Gosto muito de moda principalmente roupas dos anos 2000. </p>
-
+ 
     </div>
-
+ 
     <div class="Giulia">
-        
+       
       <div class="foto-redonda">
-
+ 
         <img src="giulia_foto.png" alt="Giulia Leite">
-
+ 
         <!-- depois troca por: <img src="foto1.jpg" alt="Nome da pessoa"> -->
-
+ 
       </div>
       <p>Meu nome é Giulia e atualmente tenho 18 anos! Amo moda desde pequena e desejo me tornar Diretora Criativa quando "crescer".</p>
     </div>
-
+ 
     <div class="Melissa">
-
+ 
       <div class="foto-redonda">
-
+ 
         <img src="melissa_foto.png" alt="Melissa Rodrigues">
-
+ 
         <!-- depois troca por: <img src="foto1.jpg" alt="Nome da pessoa"> -->
-
+ 
       </div>
       <p>Meu nome é Melissa e tenho 17 anos. Gosto de moda por ser uma forma de se expressar e mostrar sua identidade! </p>
     </div>
-
-    
-
+ 
+   
+ 
 </section>
-
+ 
     <!--PROJETOS-->
     <section id="projeto" class="projeto">
         <h2>Projetos</h2>
-
+ 
         <hr class="divisoria">
-
+ 
   <p class="mini-descricao">mini descrição sobre o que é esse site</p>
-
+ 
   <div class="carrossel-projetos">
-
+ 
     <div class="card-projeto">
-
+ 
       <div class="card-imagem">
-
+ 
         <span>foto da previa do projeto</span>
-
+ 
         <a href="#" class="botao-saiba-mais">clique para saber mais</a>
-      
+     
     </div>
-    
+   
     <p class="resumo-projeto">resumo desse projeto</p>
-    
+   
 </div>
-
+ 
        
     </section>
-
+ 
     <!--CONTATO-->
     <section id="contato" class="contato">
-
+ 
     <h2> entre em contato</h2>
-
+ 
     <form>
         <input type="text"
             placeholder="seu nome"
             required>
-            
+           
         <input type="email"
             placeholder="seu email"
             required>
-
+ 
         <textarea rows="5"
                 placeholder="sua mensagem"></textarea>
-
+ 
         <button type="submit">
             enviar
         </button>
-
+ 
     </form>
-    
+   
     </section>
-
-    <!--RODAPÉ-->   
+ 
+    <!--RODAPÉ-->  
     <footer>
-
+ 
         <h3>Diabo Veste Shein</h3>
         <p>projeto feito pelos alunos do Senac TBS</p>
         <p>@algumemail.com</p>
         <p>© 2026 - todos os direitos educacionais reservados</p>
     </footer>
-
-
-    
+ 
+ 
+    <!--JAVASCRIPT DO MAPA-->
+    <script>
+    (function () {
+      const CENTRO_PADRAO = [-23.5505, -46.6333]; // centro de São Paulo
+      const RAIO_METROS = 5000;
+ 
+      const el = {
+        mapa:    document.getElementById('mapa'),
+        status:  document.getElementById('status'),
+        lista:   document.getElementById('lista'),
+        nome:    document.getElementById('destaque-nome'),
+        info:    document.getElementById('destaque-info'),
+        acoes:   document.getElementById('destaque-acoes'),
+        maps:    document.getElementById('destaque-maps'),
+        site:    document.getElementById('destaque-site'),
+        btnLocal: document.getElementById('btn-local'),
+        btnTodos: document.getElementById('btn-todos')
+      };
+ 
+      let centro = CENTRO_PADRAO;
+      let selecionado = null;
+      let buscando = false;
+ 
+      // ---------- Mapa do Google (iframe, sem chave) ----------
+      function mostrarBusca(lat, lng, zoom) {
+        el.mapa.src = 'https://www.google.com/maps?q=' + encodeURIComponent('brechós') +
+          '&ll=' + lat + ',' + lng + '&z=' + zoom + '&output=embed';
+      }
+ 
+      function mostrarLugar(lat, lng) {
+        el.mapa.src = 'https://www.google.com/maps?q=' + lat + ',' + lng + '&z=17&output=embed';
+      }
+ 
+      // ---------- Auxiliares ----------
+      function mensagem(texto) { el.status.textContent = texto; }
+ 
+      function distanciaMetros(lat1, lng1, lat2, lng2) {
+        const R = 6371000, rad = Math.PI / 180;
+        const dLat = (lat2 - lat1) * rad, dLng = (lng2 - lng1) * rad;
+        const a = Math.sin(dLat / 2) ** 2 +
+                  Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLng / 2) ** 2;
+        return 2 * R * Math.asin(Math.sqrt(a));
+      }
+ 
+      function formatarDistancia(metros) {
+        if (metros < 1000) return 'a ' + (Math.round(metros / 10) * 10) + ' m';
+        return 'a ' + (metros / 1000).toFixed(1).replace('.', ',') + ' km';
+      }
+ 
+      function montarEndereco(tags) {
+        const rua = [tags['addr:street'], tags['addr:housenumber']].filter(Boolean).join(', ');
+        return [rua, tags['addr:suburb']].filter(Boolean).join(' - ');
+      }
+ 
+      // Só aceita links http/https (os dados vêm de voluntários do OpenStreetMap)
+      function siteValido(valor) {
+        if (!valor) return null;
+        try {
+          const url = new URL(/^https?:\/\//i.test(valor) ? valor : 'https://' + valor);
+          return (url.protocol === 'http:' || url.protocol === 'https:') ? url.href : null;
+        } catch (e) { return null; }
+      }
+ 
+      function limparDestaque() {
+        el.nome.textContent = 'Escolha um brechó';
+        el.info.textContent = 'Toque num brechó da lista para ver no mapa.';
+        el.acoes.hidden = true;
+      }
+ 
+      // ---------- Seleção ----------
+      function selecionar(b) {
+        if (selecionado) selecionado.botao.removeAttribute('aria-current');
+        selecionado = b;
+        b.botao.setAttribute('aria-current', 'true');
+ 
+        el.nome.textContent = b.nome;
+        el.info.textContent = b.endereco || 'Endereço não cadastrado.';
+        el.maps.href = 'https://www.google.com/maps/search/?api=1&query=' + b.lat + ',' + b.lng;
+        el.acoes.hidden = false;
+ 
+        if (b.site) { el.site.href = b.site; el.site.hidden = false; }
+        else { el.site.hidden = true; }
+ 
+        mostrarLugar(b.lat, b.lng);
+      }
+ 
+      function criarItem(b) {
+        const li = document.createElement('li');
+        const botao = document.createElement('button');
+        botao.type = 'button';
+        botao.className = 'item-brecho';
+ 
+        const nome = document.createElement('span');
+        nome.className = 'nome';
+        nome.textContent = b.nome; // textContent evita injetar HTML vindo dos dados
+        botao.appendChild(nome);
+ 
+        if (b.endereco) {
+          const endereco = document.createElement('span');
+          endereco.className = 'detalhe';
+          endereco.textContent = b.endereco;
+          botao.appendChild(endereco);
+        }
+ 
+        const distancia = document.createElement('span');
+        distancia.className = 'detalhe';
+        distancia.textContent = formatarDistancia(b.distancia);
+        botao.appendChild(distancia);
+ 
+        botao.addEventListener('click', () => selecionar(b));
+        li.appendChild(botao);
+        el.lista.appendChild(li);
+        return botao;
+      }
+ 
+      // ---------- Lista de brechós (OpenStreetMap / Overpass) ----------
+      function mostrarLista(elementos) {
+        el.lista.replaceChildren();
+        selecionado = null;
+        limparDestaque();
+ 
+        const brechos = elementos
+          .map(e => {
+            const lat = e.lat ?? (e.center && e.center.lat);
+            const lng = e.lon ?? (e.center && e.center.lon);
+            const tags = e.tags || {};
+            if (lat == null || lng == null || !tags.name) return null;
+            return {
+              nome: tags.name, lat: lat, lng: lng,
+              endereco: montarEndereco(tags),
+              site: siteValido(tags.website || tags['contact:website']),
+              distancia: distanciaMetros(centro[0], centro[1], lat, lng)
+            };
+          })
+          .filter(Boolean)
+          .sort((a, b) => a.distancia - b.distancia);
+ 
+        if (brechos.length === 0) {
+          mensagem('Nenhum brechó na lista para esta área, mas o mapa ao lado mostra os do Google.');
+          return;
+        }
+ 
+        brechos.forEach(b => { b.botao = criarItem(b); });
+        const n = brechos.length;
+        mensagem(n + (n === 1 ? ' brechó na lista' : ' brechós na lista'));
+      }
+ 
+      async function buscarLista() {
+        if (buscando) return;
+        buscando = true;
+        el.btnLocal.disabled = true;
+        mensagem('Buscando brechós…');
+ 
+        const consulta = `
+          [out:json][timeout:25];
+          (
+            nwr["shop"="second_hand"](around:${RAIO_METROS},${centro[0]},${centro[1]});
+            nwr["shop"="clothes"]["second_hand"="only"](around:${RAIO_METROS},${centro[0]},${centro[1]});
+          );
+          out center tags;
+        `;
+ 
+        try {
+          const resposta = await fetch('https://overpass-api.de/api/interpreter', {
+            method: 'POST',
+            body: 'data=' + encodeURIComponent(consulta)
+          });
+          if (!resposta.ok) throw new Error('Erro ' + resposta.status);
+          const dados = await resposta.json();
+          mostrarLista(dados.elements);
+        } catch (erro) {
+          console.error(erro);
+          mensagem('Não foi possível carregar a lista agora, mas o mapa continua funcionando.');
+        } finally {
+          buscando = false;
+          el.btnLocal.disabled = false;
+        }
+      }
+ 
+      // ---------- Botões ----------
+      el.btnTodos.addEventListener('click', () => {
+        mostrarBusca(centro[0], centro[1], 13);
+      });
+ 
+      el.btnLocal.addEventListener('click', () => {
+        if (!navigator.geolocation) {
+          mensagem('Seu navegador não permite usar a localização.');
+          return;
+        }
+        mensagem('Procurando sua localização…');
+        navigator.geolocation.getCurrentPosition(
+          pos => {
+            centro = [pos.coords.latitude, pos.coords.longitude];
+            mostrarBusca(centro[0], centro[1], 14);
+            buscarLista();
+          },
+          () => mensagem('Não foi possível acessar sua localização. Verifique a permissão do navegador.'),
+          { timeout: 10000 }
+        );
+      });
+ 
+      // Lista inicial ao abrir a página
+      buscarLista();
+    })();
+    </script>
+   
 </body>
 </html>
-

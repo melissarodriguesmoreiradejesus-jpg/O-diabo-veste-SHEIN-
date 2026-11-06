@@ -423,50 +423,226 @@ footer p {
 }
 
 
-.mapa {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 18px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.2);
+.secao-brechos {
+  --brechos-sidebar: #b20a0a;   /* card escuro */
+  --brechos-destaque: #ca1313;  /* laranja: pinos e botão */
+  --brechos-texto: #1a1a1a;
+  --brechos-linha: #ddd3bf;
+ 
+  padding: 80px 40px;
+  scroll-margin-top: 80px;      /* o menu do topo não cobre o título */
 }
-
-@media (max-width: 768px) {
-    .brecho-box {
-        flex-direction: column;
-        padding: 25px;
-    }
-
-    .brecho-info,
-    .mapa {
-        width: 100%;
-        max-width: none;
-    }
+ 
+/* garante que o atributo "hidden" funcione mesmo com display:flex */
+.secao-brechos [hidden] { display: none !important; }
+ 
+.secao-brechos h2 {
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
-
-.mapa h3 {
-    color:#fdf6f6;
-    font-size: 24px;
-    margin-bottom: 50px;
-    text-align: left;
+ 
+.secao-brechos .divisoria {
+  border: none;
+  border-top: 1px solid var(--brechos-linha);
+  margin: 0;
 }
-
-.mapa iframe {
-    width: 100%;
-    height: 500px;
-    border: 0;
-    border-radius: 28px;
+ 
+.secao-brechos .mini-descricao {
+  color: #ab0404;
+  margin: 20px 0 32px;
 }
-
-.card button {
-    margin: 15px;
-    background-color: #f77f00;
+ 
+/* --- Layout: painel à esquerda, mapa grande à direita ----------------- */
+.brechos-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 20px;
+  height: 560px;
 }
-
-.card button:hover {
-    background-color: #d62828;
+ 
+.brechos-painel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+ 
+/* Card do brechó selecionado */
+.brecho-destaque {
+  background-color: var(--brechos-sidebar);
+  color: #fff;
+  border-radius: 24px;
+  padding: 22px 22px 24px;
+}
+ 
+.brecho-destaque h3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+ 
+.brecho-destaque p {
+  font-size: 0.95rem;
+  color: #e6e2d8;
+}
+ 
+.brecho-destaque .acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 16px;
+}
+ 
+.botao-maps {
+  display: inline-block;
+  background-color: var(--brechos-destaque);
+  color: var(--brechos-texto);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+}
+ 
+.link-site {
+  color: #fff;
+  font-size: 0.9rem;
+}
+ 
+/* Lista de brechós (rola sozinha se tiver muitos) */
+.brechos-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0 4px 0 0;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.item-brecho {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background-color: rgba(255, 255, 255, 0.65);
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+ 
+.item-brecho:hover { background-color: #fff; }
+ 
+.item-brecho[aria-current="true"] {
+  background-color: #fff;
+  border-color: var(--brechos-destaque);
+}
+ 
+.item-brecho .nome {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+ 
+.item-brecho .detalhe {
+  display: block;
+  font-size: 0.85rem;
+  color: #6b6b6b;
+}
+ 
+/* --- Mapa -------------------------------------------------------------- */
+.brechos-mapa {
+  position: relative;
+  min-height: 0;
+}
+ 
+#mapa {
+  width: 100%;
+  height: 100%;            /* o mapa precisa de altura definida, senão some */
+  border-radius: 24px;
+  background-color: #e8e2d3;
+  z-index: 0;
+}
+ 
+.ferramentas {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+ 
+.ferramentas button {
+  background-color: #fff;
+  color: var(--brechos-texto);
+  border: none;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+}
+ 
+.ferramentas button:hover { background-color: #f4efe3; }
+.ferramentas button:disabled { opacity: 0.6; cursor: default; }
+ 
+.status-mapa {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 500;
+  max-width: calc(100% - 120px);
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.92);
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+ 
+.status-mapa:empty { display: none; }
+ 
+/* Pinos (não use "transform" aqui: o Leaflet usa transform para posicionar) */
+.pino-brecho {
+  background-color: var(--brechos-destaque);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+ 
+.pino-brecho.ativo { background-color: var(--brechos-sidebar); }
+ 
+/* Foco visível para quem navega pelo teclado */
+.item-brecho:focus-visible,
+.botao-maps:focus-visible,
+.link-site:focus-visible,
+.ferramentas button:focus-visible {
+  outline: 3px solid var(--brechos-texto);
+  outline-offset: 2px;
+}
+ 
+/* --- Celular ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .secao-brechos { padding: 40px 20px; }
+ 
+  .brechos-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+ 
+  .brechos-mapa { order: 1; height: 420px; }
+  .brechos-painel { order: 2; }
+  .brechos-lista { max-height: 260px; }
 }
 
 /* CSS MICROTRENDS */
@@ -672,5 +848,4 @@ article p {
   color: #777;
   font-size: 0.9rem;
 }
-
 
